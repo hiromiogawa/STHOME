@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 import NavigationText from '../atoms/text/NavigationText'
-import navigation from '../../data/navigation.json'
-
+import { PAGES_DATA } from '@/data/config'
 const GlobalNavigation = () => {
   return (
     <StyledNavigation>
       <ul>
-        {navigation.map((value) => {
+        {PAGES_DATA.map((value) => {
           if (value.showInHeader) {
             return (
-              <NavigationText key={value.text} tag="li" href={value.href}>
-                {value.text}
+              <NavigationText key={value.title} tag="li" href={value.path}>
+                {value.title}
               </NavigationText>
             )
           }
