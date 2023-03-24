@@ -1,3 +1,4 @@
+// [HACK] 不用だが確認用に残す
 export const colors = {
   black: '#11191C',
   blue: '#025F80',
