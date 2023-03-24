@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import NavigationText from '../atoms/text/NavigationText'
+import NavigationText from '@/components/atoms/text/NavigationText'
 import { PAGES_DATA } from '@/data/config'
 const GlobalNavigation = ({ ...props }) => {
   return (

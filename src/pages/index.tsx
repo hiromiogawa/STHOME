@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Layout from '@/components/common/Layout'
 import FirstView from '@/components/molecules/FirstView'
 
-import Vision from '@/components/molecules/Vision'
+import Vision from '@/components/organisms/Vision'
 
 import Contents from '@/components/common/Contents'
 import Heading1 from '@/components/atoms/heading/Heading1'

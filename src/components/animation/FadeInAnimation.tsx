@@ -15,7 +15,7 @@ type PropTypes = {
 const FadeInAnimation = ({
   trigger = false,
   delay = 0,
-  duration = 0,
+  duration = 0.5,
   fillMode = 'forwards',
   type = 'fadeUp',
   children = ''
@@ -40,10 +40,12 @@ const StyledFadeInAnimation = styled.div<
 >`
   transform: ${({ type }) => (type === 'fadeUp' ? 'translateY(30px)' : 'none')};
   opacity: 0;
-  ${({ trigger, type }) =>
+  ${({ trigger, type, fillMode, duration, delay }) =>
     trigger &&
     css`
-      animation: ${type === 'fadeUp' ? fadeUp : fadeOn} forwards 0.5s;
+      animation: ${type === 'fadeUp' ? fadeUp : fadeOn}
+        ${duration ? duration : 0.5}s ${fillMode ? fillMode : 'forwards'}
+        ${delay ? delay : 0}s;
     `}
 `
 
