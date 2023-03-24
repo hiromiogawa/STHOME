@@ -1,16 +1,23 @@
 import styled, { css, keyframes } from 'styled-components'
 
-type PropTypes = {
+export type PropTypes = {
   tag?: React.ElementType
   children: string
   inView?: boolean
 }
 
-const Heading1 = ({ tag = 'h2', children = '', inView = true }: PropTypes) => {
+const Heading1 = ({
+  tag = 'h2',
+  children = '',
+  inView = true,
+  ...props
+}: PropTypes) => {
   return (
-    <StyledHeading1 as={tag}>
-      <StyledText>{children}</StyledText>
-      <StyledBorder inView={inView} />
+    <StyledHeading1 as={tag} {...props}>
+      <StyledInnder>
+        <StyledText>{children}</StyledText>
+        <StyledBorder inView={inView} />
+      </StyledInnder>
     </StyledHeading1>
   )
 }
@@ -18,6 +25,11 @@ const Heading1 = ({ tag = 'h2', children = '', inView = true }: PropTypes) => {
 export default Heading1
 
 const StyledHeading1 = styled.h2``
+
+const StyledInnder = styled.div`
+  position: relative;
+  display: inline-block;
+`
 
 const StyledText = styled.span`
   position: relative;

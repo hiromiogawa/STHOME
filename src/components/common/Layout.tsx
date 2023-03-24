@@ -16,11 +16,11 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
-interface props {
-  readonly children: React.ReactNode
+type PropTypes = {
+  children: React.ReactNode
 }
 
-export default function Layout({ children }: props) {
+const Layout = ({ children }: PropTypes) => {
   return (
     <>
       <GlobalStyle />
@@ -29,3 +29,5 @@ export default function Layout({ children }: props) {
     </>
   )
 }
+
+export default Layout

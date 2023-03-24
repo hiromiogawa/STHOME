@@ -13,10 +13,11 @@ const NavigationText = ({
   tag = 'p',
   href,
   color = '#424242',
-  children
+  children,
+  ...props
 }: PropTypes) => {
   return (
-    <StyledText as={tag} color={color}>
+    <StyledText as={tag} color={color} {...props}>
       <Link href={href}>{children}</Link>
     </StyledText>
   )

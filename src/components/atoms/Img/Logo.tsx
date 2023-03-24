@@ -5,9 +5,9 @@ type PropTypes = {
   color: string
 }
 
-const Logo = ({ color }: PropTypes) => {
+const Logo = ({ color, ...props }: PropTypes) => {
   return (
-    <Styledlogo color={color}>
+    <Styledlogo color={color} {...props}>
       <Link href="/">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 47">
           <defs></defs>

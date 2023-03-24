@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import NavigationText from '../atoms/text/NavigationText'
 import { PAGES_DATA } from '@/data/config'
-const GlobalNavigation = () => {
+const GlobalNavigation = ({ ...props }) => {
   return (
-    <StyledNavigation>
+    <StyledNavigation {...props}>
       <ul>
         {PAGES_DATA.map((value) => {
           if (value.showInHeader) {

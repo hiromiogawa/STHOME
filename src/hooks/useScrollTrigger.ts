@@ -1,6 +1,9 @@
 import { useEffect, useState, RefObject } from 'react'
 
-export const useScrollTrigger = (ref: RefObject<HTMLElement>) => {
+export const useScrollTrigger = (
+  ref: RefObject<HTMLElement>,
+  startPosition: number = 300
+) => {
   const [isTriggered, setIsTriggered] = useState(false)
 
   useEffect(() => {
@@ -9,7 +12,8 @@ export const useScrollTrigger = (ref: RefObject<HTMLElement>) => {
         const { top, bottom } = ref.current.getBoundingClientRect()
         const windowHeight = window.innerHeight
 
-        if (top < windowHeight && bottom > 0) setIsTriggered(true)
+        if (top + startPosition < windowHeight && bottom > 0)
+          setIsTriggered(true)
       }
     }
 
