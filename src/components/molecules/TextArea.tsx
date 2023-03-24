@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import Heading1, { PropTypes as Heading1Type } from '../atoms/heading/Heading1'
-import Text1, { PropTypes as Text1Type } from '../atoms/text/Text1'
-import Text2, { PropTypes as Text2Type } from '../atoms/text/Text2'
+import Heading1, {
+  PropTypes as Heading1Type
+} from '@/components/atoms/heading/Heading1'
+import Text1, { PropTypes as Text1Type } from '@/components/atoms/text/Text1'
+import Text2, { PropTypes as Text2Type } from '@/components/atoms/text/Text2'
 
 export type PropTypes = {
   heading: Heading1Type

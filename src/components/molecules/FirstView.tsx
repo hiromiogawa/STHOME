@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import MainVisual from '../atoms/Img/MainVisual'
-import CatchCopy from '../atoms/Img/CatchCopy'
+import MainVisual from '@/components/atoms/Img/MainVisual'
+import CatchCopy from '@/components/atoms/Img/CatchCopy'
 import { vw, media } from '@/styles/utils'
 import { Device } from '@/styles/vars'
 

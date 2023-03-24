@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
-import Header from '../organisms/Header'
+import Header from '@/components/organisms/Header'
 
 const GlobalStyle = createGlobalStyle`
     ${reset}

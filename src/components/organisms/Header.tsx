@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Logo from '../atoms/Img/Logo'
-import GlobalNavigation from '../molecules/GlobalNavigation'
+import Logo from '@/components/atoms/Img/Logo'
+import GlobalNavigation from '@/components/molecules/GlobalNavigation'
 
 const Header = ({}) => {
   return (
