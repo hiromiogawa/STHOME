@@ -15,7 +15,7 @@ export const baseFontSize = 16
 export const baseBackGroundColor = '#FFF'
 
 // 画面幅
-export interface DeviceType {
+export type DeviceType = {
   pc: 1920
   ct: number
   tb: 768

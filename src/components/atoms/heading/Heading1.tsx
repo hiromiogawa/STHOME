@@ -1,22 +1,29 @@
 import styled, { css, keyframes } from 'styled-components'
 
+import Text from '@/components/elements/Text'
+import { AnimationType } from '@/styles/types'
+
 export type PropTypes = {
   tag?: React.ElementType
   children: string
-  inView?: boolean
-}
+  trigger?: boolean
+} & AnimationType
 
 const Heading1 = ({
   tag = 'h2',
   children = '',
-  inView = true,
+  trigger = true,
+  delay = 0,
+  duration = 0.7,
   ...props
 }: PropTypes) => {
   return (
     <StyledHeading1 as={tag} {...props}>
       <StyledInnder>
-        <StyledText>{children}</StyledText>
-        <StyledBorder inView={inView} />
+        <StyledText>
+          <Text>{children}</Text>
+        </StyledText>
+        <StyledBorder trigger={trigger} />
       </StyledInnder>
     </StyledHeading1>
   )
@@ -48,7 +55,7 @@ const animation = keyframes`
     }
 `
 
-const StyledBorder = styled.span<{ inView: boolean }>`
+const StyledBorder = styled.span<{ trigger: boolean }>`
   position: absolute;
   right: -128px;
   top: 50%;
@@ -61,13 +68,13 @@ const StyledBorder = styled.span<{ inView: boolean }>`
     top: 0;
     left: 0;
     background-color: #333;
-    ${(props) => props.inView && 'width: 100%;'}
+    ${({ trigger }) => trigger && 'width: 100%;'}
     height: 100%;
-    ${(props) =>
-      props.inView &&
+    ${({ trigger }) =>
+      trigger &&
       css`
         width: 0;
-        animation: ${animation} forwards 0.5s;
+        animation: ${animation} forwards 0.7s;
       `}
   }
 `
