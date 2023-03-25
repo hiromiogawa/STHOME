@@ -18,7 +18,9 @@ const NavigationText = ({
 }: PropTypes) => {
   return (
     <StyledText as={tag} color={color} {...props}>
-      <Link href={href}>{children}</Link>
+      <Link href={href}>
+        <Text>{children}</Text>
+      </Link>
     </StyledText>
   )
 }
