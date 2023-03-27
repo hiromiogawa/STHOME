@@ -14,7 +14,7 @@ export type PropTypes = {
   text1: Text1Type
 }
 
-const TextArea = ({ heading, text2, text1, ...props }: PropTypes) => {
+const TextArea1 = ({ heading, text2, text1, ...props }: PropTypes) => {
   const elementsRef = useRef(null)
   const inView = useScrollTrigger(elementsRef)
 
@@ -29,7 +29,7 @@ const TextArea = ({ heading, text2, text1, ...props }: PropTypes) => {
   )
 }
 
-export default TextArea
+export default TextArea1
 
 const StyledTextArea = styled.div``
 
