@@ -6,9 +6,9 @@ export type PropTypes = {
   children: string
 }
 
-const Button1 = ({ href = '', children = '' }) => {
+const Button1 = ({ href = '', children = '', ...props }) => {
   return (
-    <StyledButton1>
+    <StyledButton1 {...props}>
       <Link href={href}>
         <span>{children}</span>
       </Link>
