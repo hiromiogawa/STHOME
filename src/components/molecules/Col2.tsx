@@ -2,12 +2,16 @@ import styled from 'styled-components'
 
 export type PropTypes = {
   rowReverse?: boolean
-  children: [string, string]
+  children: [string | React.ReactNode, string | React.ReactNode]
 }
 
-const Col2 = ({ rowReverse = false, children = ['', ''] }: PropTypes) => {
+const Col2 = ({
+  rowReverse = false,
+  children = ['', ''],
+  ...props
+}: PropTypes) => {
   return (
-    <StyledCol2Wrap rowReverse={rowReverse}>
+    <StyledCol2Wrap rowReverse={rowReverse} {...props}>
       <StyledCol1>{children[0]}</StyledCol1>
       <StyledCol2>{children[1]}</StyledCol2>
     </StyledCol2Wrap>
