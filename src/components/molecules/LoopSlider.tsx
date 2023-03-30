@@ -17,33 +17,29 @@ const LoopSlider = ({ images, interval = 1, slideTime = 10 }: PropsTypes) => {
   useEffect(() => {
     if (slideRef.current) {
       const width = slideRef.current.offsetWidth
+      console.log(width)
       const slideClone = slideRef.current.cloneNode(true) as HTMLElement
       slideClone.style.left = `${width}px`
       slideRef.current.appendChild(slideClone)
       setSlideWidth(width * 2)
-      setIntervalId(setInterval(moveSlide, interval))
+      const id = setInterval(moveSlide, interval)
+      setIntervalId(id)
 
       return () => {
-        clearInterval(intervalId as NodeJS.Timeout)
+        clearInterval(id)
       }
     }
-  }, [interval, intervalId])
+  }, [interval])
 
   const moveSlide = () => {
     setSlideLeft((prevSlideLeft) => prevSlideLeft - slideWidth / images.length)
   }
 
   useEffect(() => {
-    if (slideLeft === -slideWidth / images.length) {
+    if (slideLeft <= -slideWidth / images.length) {
       setSlideLeft(0)
     }
   }, [slideLeft])
-
-  useEffect(() => {
-    return () => {
-      if (intervalId) clearInterval(intervalId)
-    }
-  }, [intervalId])
 
   return (
     <SlideWrapper>
