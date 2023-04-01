@@ -16,7 +16,8 @@ type PropTypes = {
 const ContinuousSlider = ({
   items = [],
   speed = 1,
-  perPage = 3
+  perPage = 3,
+  ...props
 }: PropTypes) => {
   return (
     <Splide
@@ -35,6 +36,7 @@ const ContinuousSlider = ({
         }
       }}
       extensions={{ AutoScroll }}
+      {...props}
     >
       {items.map((item) => (
         <SplideSlide key={item.alt}>

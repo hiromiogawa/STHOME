@@ -10,6 +10,7 @@ import Business from '@/components/organisms/Business'
 
 import Contents from '@/components/common/Contents'
 
+import styled from 'styled-components'
 import dammyImg from '@/images/index/dammy.png'
 import ContinuousSlider from '@/components/animation/ContinuousSlider'
 
@@ -53,12 +54,18 @@ const Home = () => {
       <FirstView />
       <Vision />
       <Business />
-      <ContinuousSlider items={slideItems} />
+      <StyledContinuousSlider items={slideItems} />
     </Layout>
   )
 }
 
 export default Home
+
+const StyledContinuousSlider = styled(ContinuousSlider)`
+  .splide__slide {
+    margin-top: 100px;
+  }
+`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 // export const getStaticProps = async () => {
