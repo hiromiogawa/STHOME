@@ -7,15 +7,18 @@ export type PropTypes = ImageProps & LinkProps
 
 const SlideCard = ({ src, alt, href }: PropTypes) => {
   return (
-    <SplideSlide key={alt}>
-      <Link href={href}>
+    <SplideSlide key={alt} style={{ marginTop: `${10 * Math.random()}px` }}>
+      <StyledLink href={href}>
         <StyledImage src={src} alt={alt} />
-      </Link>
+      </StyledLink>
     </SplideSlide>
   )
 }
 
 export default SlideCard
+const StyledLink = styled(Link)`
+  display: block;
+`
 
 const StyledImage = styled(Image)`
   width: 100%;

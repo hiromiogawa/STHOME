@@ -54,18 +54,12 @@ const Home = () => {
       <FirstView />
       <Vision />
       <Business />
-      <StyledContinuousSlider items={slideItems} />
+      <ContinuousSlider items={slideItems} />
     </Layout>
   )
 }
 
 export default Home
-
-const StyledContinuousSlider = styled(ContinuousSlider)`
-  .splide__slide {
-    margin-top: 100px;
-  }
-`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 // export const getStaticProps = async () => {
