@@ -10,6 +10,7 @@ import Business from '@/components/organisms/Business'
 
 import Contents from '@/components/common/Contents'
 
+import styled from 'styled-components'
 import dammyImg from '@/images/index/dammy.png'
 import ContinuousSlider from '@/components/animation/ContinuousSlider'
 
