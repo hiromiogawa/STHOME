@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import styled from 'styled-components'
 import Image, { ImageProps } from 'next/image'
 import Link, { LinkProps } from 'next/link'
@@ -6,20 +7,27 @@ import { SplideSlide } from '@splidejs/react-splide'
 export type PropTypes = ImageProps & LinkProps
 
 const SlideCard = ({ src, alt, href }: PropTypes) => {
+  const randomMargin = 100 * Math.random()
   return (
-    <SplideSlide key={alt} style={{ marginTop: `${10 * Math.random()}px` }}>
+    <StyledSplideSlide key={alt} style={{ marginTop: `${randomMargin}px` }}>
       <StyledLink href={href}>
         <StyledImage src={src} alt={alt} />
       </StyledLink>
-    </SplideSlide>
+    </StyledSplideSlide>
   )
 }
 
 export default SlideCard
+
+const StyledSplideSlide = styled(SplideSlide)`
+  padding: 0 20px;
+  margin-right: 0 !important;
+`
 const StyledLink = styled(Link)`
   display: block;
 `
 
 const StyledImage = styled(Image)`
   width: 100%;
+  height: auto;
 `

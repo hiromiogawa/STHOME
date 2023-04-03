@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Splide } from '@splidejs/react-splide'
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 import '@splidejs/react-splide/css'
@@ -12,7 +13,7 @@ type PropTypes = {
 const ContinuousSlider = ({
   items = [],
   speed = 1,
-  perPage = 3,
+  perPage = 3.5,
   ...props
 }: PropTypes) => {
   return (
@@ -25,9 +26,9 @@ const ContinuousSlider = ({
         pagination: false,
         perPage: perPage,
         autoScroll: {
-          pauseOnHover: false,
+          pauseOnHover: true,
           pauseOnFocus: false,
-          rewind: false,
+          rewind: true,
           speed: speed
         }
       }}
