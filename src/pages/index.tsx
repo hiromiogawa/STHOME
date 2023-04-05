@@ -84,12 +84,30 @@ const Home = () => {
       <FirstView />
       <Vision />
       <Business />
-      <ContinuousSlider items={slideItems} />
+      <StyledPastRecord>
+        <StyledBg />
+        <ContinuousSlider items={slideItems} />
+      </StyledPastRecord>
     </Layout>
   )
 }
 
 export default Home
+
+const StyledPastRecord = styled.section`
+  margin-top: 148px;
+  position: relative;
+  padding-bottom: 48px;
+`
+
+const StyledBg = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #f4f3f1;
+  width: 100%;
+  height: 75%;
+`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 // export const getStaticProps = async () => {
