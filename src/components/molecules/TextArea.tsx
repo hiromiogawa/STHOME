@@ -9,18 +9,16 @@ import Text1, { PropTypes as Text1Type } from '@/components/atoms/text/Text1'
 import Text2, { PropTypes as Text2Type } from '@/components/atoms/text/Text2'
 
 export type PropTypes = {
-  heading: Heading1Type
   text2: Text2Type
   text1: Text1Type
 }
 
-const TextArea1 = ({ heading, text2, text1, ...props }: PropTypes) => {
+const TextArea1 = ({ text2, text1, ...props }: PropTypes) => {
   const elementsRef = useRef(null)
   const inView = useScrollTrigger(elementsRef)
 
   return (
     <StyledTextArea ref={elementsRef} {...props}>
-      <Heading1 {...heading} trigger={inView} />
       <FadeInAnimation trigger={inView} delay={0.5}>
         <StyledText2 {...text2} />
         <StyledText1 {...text1} />

@@ -1,17 +1,15 @@
 import styled from 'styled-components'
 
 import Contents from '@/components/common/Contents'
+import Heading2 from '../atoms/heading/Heading2'
 import TextArea from '@/components/molecules/TextArea'
 
 const Vision = () => {
   return (
     <StyledVision>
       <Contents>
+        <StyledHeading2>VISION</StyledHeading2>
         <TextArea
-          heading={{
-            children: 'VISION',
-            tag: 'h1'
-          }}
           text2={{
             children: '建築と未来の技術が、新しいライフスタイルを実現します。'
           }}
@@ -30,7 +28,12 @@ const Vision = () => {
 export default Vision
 
 const StyledVision = styled.section`
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
+`
+
+const StyledHeading2 = styled(Heading2)`
+  position: absolute;
 `

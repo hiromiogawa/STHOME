@@ -4,11 +4,13 @@ import Col2 from '@/components/molecules/Col2'
 import TextButtonArea from '@/components/molecules/TextButtonArea'
 import img1 from '@/images/index/Business_ph01.png'
 import Image from 'next/image'
+import Heading2 from '@/components/atoms/heading/Heading2'
 
 const Business = () => {
   return (
     <StyledBusiness>
       <Contents>
+        <StyledHeading2>BUSINESS</StyledHeading2>
         <Col2>
           {[
             <TextButtonArea
@@ -31,7 +33,7 @@ const Business = () => {
             <Image key="col1" src={img1} alt={''} />
           ]}
         </Col2>
-        <Col2 rowReverse={true}>
+        <StyledCol2 rowReverse={true}>
           {[
             <TextButtonArea
               key="col2"
@@ -52,8 +54,9 @@ const Business = () => {
             />,
             <Image key="col1" src={img1} alt={''} />
           ]}
-        </Col2>
+        </StyledCol2>
       </Contents>
+      <StyledBg />
     </StyledBusiness>
   )
 }
@@ -63,15 +66,22 @@ export default Business
 const StyledBusiness = styled.section`
   padding-top: 48px;
   position: relative;
+`
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #f4f3f1;
-    width: calc(100% - 130px);
-    height: calc(100% - 65px);
-    z-index: -1;
-  }
+const StyledBg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #f4f3f1;
+  width: calc(100% - 130px);
+  height: calc(100% - 65px);
+  z-index: -1;
+`
+const StyledHeading2 = styled(Heading2)`
+  position: relative;
+  z-index: -1;
+`
+
+const StyledCol2 = styled(Col2)`
+  margin-top: 48px;
 `
