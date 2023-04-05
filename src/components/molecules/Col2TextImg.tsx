@@ -24,7 +24,6 @@ const Col2TextImg = ({
 }: PropTypes) => {
   const elementsRef = useRef(null)
   const inView = useScrollTrigger(elementsRef)
-  console.log(inView)
 
   return (
     <div ref={elementsRef} {...props}>

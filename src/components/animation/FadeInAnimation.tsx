@@ -18,7 +18,8 @@ const FadeInAnimation = ({
   duration = 0.7,
   fillMode = 'forwards',
   type = 'fadeUp',
-  children = ''
+  children = '',
+  ...props
 }: PropTypes) => {
   return (
     <StyledFadeInAnimation
@@ -27,6 +28,7 @@ const FadeInAnimation = ({
       duration={duration}
       fillMode={fillMode}
       type={type}
+      {...props}
     >
       {children}
     </StyledFadeInAnimation>

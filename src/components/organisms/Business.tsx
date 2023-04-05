@@ -1,16 +1,16 @@
-import styled from 'styled-components'
+import { useRef } from 'react'
 import useScrollTrigger from '@/hooks/useScrollTrigger'
+import styled from 'styled-components'
 import Contents from '@/components/common/Contents'
-import Col2 from '@/components/molecules/Col2'
-import TextButtonArea from '@/components/molecules/TextButtonArea'
 import img1 from '@/images/index/Business_ph01.png'
-import Image from 'next/image'
-import MaskAnimation from '@/components/animation/MaskAnimation'
 import Heading2 from '@/components/atoms/heading/Heading2'
 import Col2TextImg from '@/components/molecules/Col2TextImg'
 import isEven from '@/functions/isEven'
+import FadeInAnimation from '@/components/animation/FadeInAnimation'
 
 const Business = () => {
+  const elementsRef = useRef(null)
+  const inView = useScrollTrigger(elementsRef)
   const col2Data = [
     {
       textButtonArea: {
@@ -68,19 +68,35 @@ const Business = () => {
     }
   ]
   return (
-    <StyledBusiness>
-      <Contents>
-        <StyledHeading2>BUSINESS</StyledHeading2>
-        {col2Data.map((data, index) => (
-          <Col2TextImg
-            key={data.textButtonArea.heading.children}
-            maskColor="#f4f3f1"
-            rowReverse={isEven(index) ? true : false}
-            {...data}
-          />
-        ))}
-      </Contents>
-      <StyledBg />
+    <StyledBusiness ref={elementsRef}>
+      <FadeInAnimation trigger={inView}>
+        <StyledContents>
+          <StyledHeading2>BUSINESS</StyledHeading2>
+
+          {col2Data.map((data, index) => {
+            if (index === 0) {
+              return (
+                <Col2TextImg
+                  key={data.textButtonArea.heading.children}
+                  maskColor="#f4f3f1"
+                  rowReverse={isEven(index) ? true : false}
+                  {...data}
+                />
+              )
+            } else {
+              return (
+                <StyledCol2TextImg
+                  key={data.textButtonArea.heading.children}
+                  maskColor="#f4f3f1"
+                  rowReverse={isEven(index) ? true : false}
+                  {...data}
+                />
+              )
+            }
+          })}
+        </StyledContents>
+        <StyledBg />
+      </FadeInAnimation>
     </StyledBusiness>
   )
 }
@@ -88,24 +104,30 @@ const Business = () => {
 export default Business
 
 const StyledBusiness = styled.section`
-  padding-top: 48px;
+  position: relative;
+`
+
+const StyledContents = styled(Contents)`
+  padding-top: 128px;
   position: relative;
 `
 
 const StyledBg = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   background-color: #f4f3f1;
   width: calc(100% - 130px);
-  height: calc(100% - 65px);
+  height: calc(100% - 160px);
   z-index: -1;
 `
 const StyledHeading2 = styled(Heading2)`
-  position: relative;
+  position: absolute;
   z-index: -1;
+  top: 0;
+  left: 0;
 `
 
-const StyledCol2 = styled(Col2)`
+const StyledCol2TextImg = styled(Col2TextImg)`
   margin-top: 48px;
 `

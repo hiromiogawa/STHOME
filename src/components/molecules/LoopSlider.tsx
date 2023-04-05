@@ -17,7 +17,6 @@ const LoopSlider = ({ images, interval = 1, slideTime = 10 }: PropsTypes) => {
   useEffect(() => {
     if (slideRef.current) {
       const width = slideRef.current.offsetWidth
-      console.log(width)
       const slideClone = slideRef.current.cloneNode(true) as HTMLElement
       slideClone.style.left = `${width}px`
       slideRef.current.appendChild(slideClone)
