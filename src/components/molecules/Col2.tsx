@@ -12,8 +12,8 @@ const Col2 = ({
 }: PropTypes) => {
   return (
     <StyledCol2Wrap rowReverse={rowReverse} {...props}>
-      <StyledCol1>{children[0]}</StyledCol1>
-      <StyledCol2>{children[1]}</StyledCol2>
+      <div>{children[0]}</div>
+      <div>{children[1]}</div>
     </StyledCol2Wrap>
   )
 }
@@ -27,9 +27,3 @@ const StyledCol2Wrap = styled.section<{ rowReverse: boolean }>`
   justify-content: space-between;
   ${({ rowReverse }) => rowReverse && `flex-direction: row-reverse;`};
 `
-
-const StyledCol1 = styled.div`
-  width: calc(100% - (560px + 48px));
-`
-
-const StyledCol2 = styled.div``

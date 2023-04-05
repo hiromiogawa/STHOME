@@ -1,9 +1,6 @@
 import { useRef } from 'react'
 import styled from 'styled-components'
 import useScrollTrigger from '@/hooks/useScrollTrigger'
-import Heading1, {
-  PropTypes as Heading1Type
-} from '@/components/atoms/heading/Heading1'
 import FadeInAnimation from '@/components/animation/FadeInAnimation'
 import Text1, { PropTypes as Text1Type } from '@/components/atoms/text/Text1'
 import Text2, { PropTypes as Text2Type } from '@/components/atoms/text/Text2'

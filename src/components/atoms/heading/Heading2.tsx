@@ -1,6 +1,5 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled from 'styled-components'
 
-import Text from '@/components/elements/Text'
 import { AnimationType } from '@/styles/types'
 
 export type PropTypes = {

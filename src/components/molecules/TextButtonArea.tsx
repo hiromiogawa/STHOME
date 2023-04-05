@@ -4,19 +4,31 @@ import Text1, { PropTypes as Text1Type } from '@/components/atoms/text/Text1'
 import Button1, {
   PropTypes as ButtonType
 } from '@/components/atoms/button/Button1'
+import FadeInAnimation from '@/components/animation/FadeInAnimation'
 
 export type PropTypes = {
-  heading?: HeadingType
+  heading: HeadingType
   text: Text1Type
   button: ButtonType
+  trigger?: boolean
 }
 
-const TextButtonArea = ({ heading, text, button, ...props }: PropTypes) => {
+const TextButtonArea = ({
+  heading,
+  text,
+  button,
+  trigger,
+  ...props
+}: PropTypes) => {
   return (
     <div {...props}>
-      {heading && <Heading1 tag={heading.tag}>{heading.children}</Heading1>}
-      <StyledText1>{text.children}</StyledText1>
-      <StyledButton1 href={button.href}>{button.children}</StyledButton1>
+      <Heading1 tag={heading.tag} trigger={trigger}>
+        {heading.children}
+      </Heading1>
+      <FadeInAnimation trigger={trigger === undefined ? true : trigger}>
+        <StyledText1>{text.children}</StyledText1>
+        <StyledButton1 href={button.href}>{button.children}</StyledButton1>
+      </FadeInAnimation>
     </div>
   )
 }
