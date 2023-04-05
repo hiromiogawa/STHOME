@@ -12,7 +12,7 @@ type PropTypes = {
 
 const ContinuousSlider = ({
   items = [],
-  speed = 1,
+  speed = 0.5,
   perPage = 3.5,
   ...props
 }: PropTypes) => {
@@ -22,6 +22,7 @@ const ContinuousSlider = ({
         type: 'loop',
         gap: '10px',
         drag: 'free',
+        autoWidth: false,
         arrows: false,
         pagination: false,
         perPage: perPage,
