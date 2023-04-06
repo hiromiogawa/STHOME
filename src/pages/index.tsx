@@ -11,6 +11,7 @@ import Business from '@/components/organisms/Business'
 import Contents from '@/components/common/Contents'
 
 import styled from 'styled-components'
+import Heading2 from '@/components/atoms/heading/Heading2'
 import dammyImg from '@/images/index/dammy.png'
 import ContinuousSlider from '@/components/animation/ContinuousSlider'
 
@@ -85,8 +86,9 @@ const Home = () => {
       <Vision />
       <Business />
       <StyledPastRecord>
-        <StyledBg />
+        <Heading2>PastRecord</Heading2>
         <ContinuousSlider items={slideItems} />
+        <StyledBg />
       </StyledPastRecord>
     </Layout>
   )
@@ -107,6 +109,7 @@ const StyledBg = styled.div`
   background-color: #f4f3f1;
   width: 100%;
   height: 75%;
+  z-index: -1;
 `
 
 // データをテンプレートに受け渡す部分の処理を記述します

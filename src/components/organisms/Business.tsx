@@ -71,7 +71,7 @@ const Business = () => {
     <StyledBusiness ref={elementsRef}>
       <FadeInAnimation trigger={inView}>
         <StyledContents>
-          <StyledHeading2>BUSINESS</StyledHeading2>
+          <StyledHeading2>Business</StyledHeading2>
 
           {col2Data.map((data, index) => {
             if (index === 0) {
@@ -94,8 +94,8 @@ const Business = () => {
               )
             }
           })}
+          <StyledBg />
         </StyledContents>
-        <StyledBg />
       </FadeInAnimation>
     </StyledBusiness>
   )
@@ -115,9 +115,9 @@ const StyledContents = styled(Contents)`
 const StyledBg = styled.div`
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   background-color: #f4f3f1;
-  width: calc(100% - 130px);
+  width: 5000px;
   height: calc(100% - 160px);
   z-index: -1;
 `
