@@ -13,6 +13,10 @@ const Vision = () => {
   const particlesInit = useCallback(async (engine: Main) => {
     await loadFull(engine)
   }, [])
+
+  // const particlesLoaded = useCallback(async (container?: Container) => {
+  //   await console.log(container)
+  // }, [])
   return (
     <StyledVision>
       <Head>

@@ -11,10 +11,6 @@ import Record from '@/components/organisms/Record'
 import Contents from '@/components/common/Contents'
 
 const Home = () => {
-  // const particlesLoaded = useCallback(async (container?: Container) => {
-  //   await console.log(container)
-  // }, [])
-
   return (
     <Layout>
       <PageHead />
