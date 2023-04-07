@@ -10,12 +10,13 @@ import Record from '@/components/organisms/Record'
 
 import Contents from '@/components/common/Contents'
 
-import { useCallback } from 'react'
-import ParticleData from '@/data/particles.json'
+import { useCallback, useEffect, useState } from 'react'
+import options from '@/data/particles.json'
 import { loadFull } from 'tsparticles'
 import Particles from 'react-tsparticles'
 import type { ISourceOptions, Container, Main } from 'tsparticles-engine/types/'
 import styled from 'styled-components'
+import Head from 'next/head'
 
 const Home = () => {
   const particlesInit = useCallback(async (engine: Main) => {
@@ -25,15 +26,22 @@ const Home = () => {
   // const particlesLoaded = useCallback(async (container?: Container) => {
   //   await console.log(container)
   // }, [])
+
   return (
     <Layout>
       <PageHead />
 
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <StyledParticles
         id="tsparticles"
         init={particlesInit}
         //loaded={particlesLoaded}
-        options={ParticleData as ISourceOptions}
+        options={options as ISourceOptions}
       />
       <FirstView />
       <Vision />
