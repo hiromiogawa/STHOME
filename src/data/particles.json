@@ -2,7 +2,7 @@
   "autoPlay": true,
   "background": {
     "color": {
-      "value": "#0d47a1"
+      "value": "#FFF"
     },
     "image": "",
     "position": "50% 50%",
@@ -197,7 +197,7 @@
       }
     },
     "color": {
-      "value": "#ffffff",
+      "value": "#025F80",
       "animation": {
         "h": {
           "count": 0,
@@ -298,7 +298,7 @@
         "height": 1080
       },
       "limit": 0,
-      "value": 80
+      "value": 10
     },
     "opacity": {
       "random": {
@@ -335,39 +335,15 @@
     "shape": {
       "options": {
         "character": {
-          "value": [
-            "t",
-            "s",
-            "P",
-            "a",
-            "r",
-            "t",
-            "i",
-            "c",
-            "l",
-            "e",
-            "s"
-          ],
-          "font": "Verdana",
+          "value": ["IoT", "Build", "Reform", "Future"],
+          "font": "Silkscreen",
           "style": "",
           "weight": "400",
           "fill": true
         },
         "char": {
-          "value": [
-            "t",
-            "s",
-            "P",
-            "a",
-            "r",
-            "t",
-            "i",
-            "c",
-            "l",
-            "e",
-            "s"
-          ],
-          "font": "Verdana",
+          "value": ["IoT", "Build", "Reform", "Future"],
+          "font": "Silkscreen",
           "style": "",
           "weight": "400",
           "fill": true
@@ -564,7 +540,7 @@
     "links": {
       "blink": false,
       "color": {
-        "value": "#ffffff"
+        "value": "#025F80"
       },
       "consent": false,
       "distance": 150,
