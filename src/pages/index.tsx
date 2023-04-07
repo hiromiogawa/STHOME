@@ -10,10 +10,21 @@ import Record from '@/components/organisms/Record'
 
 import Contents from '@/components/common/Contents'
 
+import Particles from 'react-tsparticles'
+
+import styled from 'styled-components'
+
 const Home = () => {
   return (
     <Layout>
       <PageHead />
+
+      <StyledParticles
+        id="tsparticles"
+        options={{
+          preset: 'links'
+        }}
+      />
       <FirstView />
       <Vision />
       <Business />
@@ -23,6 +34,12 @@ const Home = () => {
 }
 
 export default Home
+
+const StyledParticles = styled(Particles)`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 // export const getStaticProps = async () => {
