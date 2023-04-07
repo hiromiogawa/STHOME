@@ -1,12 +1,32 @@
 import styled from 'styled-components'
-
+import { useCallback, useEffect, useState } from 'react'
+import options from '@/data/particles.json'
+import { loadFull } from 'tsparticles'
+import Particles from 'react-tsparticles'
+import type { ISourceOptions, Container, Main } from 'tsparticles-engine/types/'
+import Head from 'next/head'
 import Contents from '@/components/common/Contents'
 import Heading2 from '../atoms/heading/Heading2'
 import TextArea from '@/components/molecules/TextArea'
 
 const Vision = () => {
+  const particlesInit = useCallback(async (engine: Main) => {
+    await loadFull(engine)
+  }, [])
   return (
     <StyledVision>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <StyledParticles
+        id="tsparticles"
+        init={particlesInit}
+        //loaded={particlesLoaded}
+        options={options as ISourceOptions}
+      />
       <Contents>
         <StyledHeading2>VISION</StyledHeading2>
         <TextArea
@@ -32,6 +52,16 @@ const StyledVision = styled.section`
   height: 100vh;
   display: flex;
   align-items: center;
+`
+
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 `
 
 const StyledHeading2 = styled(Heading2)`

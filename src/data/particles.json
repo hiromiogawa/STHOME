@@ -4,11 +4,7 @@
     "color": {
       "value": "#FFF"
     },
-    "image": "",
-    "position": "50% 50%",
-    "repeat": "no-repeat",
-    "size": "cover",
-    "opacity": 1
+    "image": ""
   },
   "backgroundMask": {
     "composite": "destination-out",
@@ -23,8 +19,8 @@
   "defaultThemes": {},
   "delay": 0,
   "fullScreen": {
-    "enable": true,
-    "zIndex": 1
+    "enable": false,
+    "zIndex": -1
   },
   "detectRetina": true,
   "duration": 0,
