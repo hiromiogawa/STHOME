@@ -8,12 +8,14 @@ type PropTypes = {
   items: SlideCardType[]
   speed?: number
   perPage?: number
+  trigger?: boolean
 }
 
 const ContinuousSlider = ({
   items = [],
   speed = 0.5,
   perPage = 3.5,
+  trigger = true,
   ...props
 }: PropTypes) => {
   return (
@@ -22,15 +24,15 @@ const ContinuousSlider = ({
         type: 'loop',
         gap: '10px',
         drag: 'free',
-        autoWidth: false,
+        autoWidth: true,
         arrows: false,
         pagination: false,
-        perPage: perPage,
+        //perPage: perPage,
         autoScroll: {
           pauseOnHover: true,
           pauseOnFocus: false,
           rewind: true,
-          speed: speed
+          speed: trigger ? speed : 0
         }
       }}
       extensions={{ AutoScroll }}
