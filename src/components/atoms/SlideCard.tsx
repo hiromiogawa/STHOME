@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Image, { ImageProps } from 'next/image'
 import Link, { LinkProps } from 'next/link'
@@ -7,9 +7,14 @@ import { SplideSlide } from '@splidejs/react-splide'
 export type PropTypes = ImageProps & LinkProps
 
 const SlideCard = ({ src, alt, href }: PropTypes) => {
-  const randomMargin = 100 * Math.random()
+  const [marginTop, setMarginTop] = useState(0)
+
+  useEffect(() => {
+    setMarginTop(Math.floor(100 * Math.random()))
+  }, [])
+
   return (
-    <StyledSplideSlide key={alt} style={{ marginTop: `${randomMargin}px` }}>
+    <StyledSplideSlide key={alt} style={{ marginTop: `${marginTop}px` }}>
       <StyledLink href={href}>
         <StyledImage src={src} alt={alt} />
       </StyledLink>

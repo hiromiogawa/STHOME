@@ -14,62 +14,62 @@ const Record = () => {
   const slideItems = [
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー0',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー1',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー2',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー3',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー4',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー5',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー6',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー7',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー8',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー9',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー10',
       href: '/'
     },
     {
       src: dammyImg,
-      alt: 'ダミー',
+      alt: 'ダミー11',
       href: '/'
     }
   ]

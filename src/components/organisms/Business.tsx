@@ -15,7 +15,7 @@ const Business = () => {
     {
       textButtonArea: {
         heading: {
-          children: 'text'
+          children: 'text1'
         },
         text: {
           children: 'ダミーテキストダミーテキストダミーテキスト'
@@ -33,7 +33,7 @@ const Business = () => {
     {
       textButtonArea: {
         heading: {
-          children: 'text'
+          children: 'text2'
         },
         text: {
           children: 'ダミーテキストダミーテキストダミーテキスト'
@@ -51,7 +51,7 @@ const Business = () => {
     {
       textButtonArea: {
         heading: {
-          children: 'text'
+          children: 'text3'
         },
         text: {
           children: 'ダミーテキストダミーテキストダミーテキスト'
