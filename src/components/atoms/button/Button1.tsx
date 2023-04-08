@@ -27,10 +27,43 @@ const StyledButton1 = styled.div`
   overflow: hidden;
 
   a {
+    position: relative;
     display: block;
-    color: #025f80;
     padding: 11px 18.5px;
     background-color: #fff;
+    overflow: hidden;
+
+    span {
+      position: relative;
+      z-index: 3;
+      color: #025f80;
+      transition: color .6s;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background: #025f80;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+      transform: scale(0, 1);
+      transform-origin: right top;
+    }
+
+    &:hover {
+
+      span {
+        color:#fff;
+      }
+
+      &::before {
+        transform-origin:left top;
+        transform:scale(1, 1);
+    }
   }
 
   span {

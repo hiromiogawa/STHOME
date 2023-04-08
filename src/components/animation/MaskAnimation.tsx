@@ -10,7 +10,7 @@ type PropTypes = {
 const MaskAnimation = ({
   trigger = false,
   delay = 0,
-  duration = 0.5,
+  duration = 0.6,
   fillMode = 'forwards',
   children = '',
   backgroundColor,
@@ -53,7 +53,7 @@ const StyledMask = styled.div<
   ${({ trigger, fillMode, duration, delay }) =>
     trigger &&
     css`
-      animation: ${mask} ${duration ? duration : 0.5}s
+      animation: ${mask} ${duration ? duration : 0.6}s
         ${fillMode ? fillMode : 'forwards'} ${delay ? delay : 0}s;
     `}
 `
