@@ -37,7 +37,7 @@ const StyledButton1 = styled.div`
       position: relative;
       z-index: 3;
       color: #025f80;
-      transition: color .6s;
+      transition: color 0.6s;
     }
 
     &::before {
@@ -55,20 +55,20 @@ const StyledButton1 = styled.div`
     }
 
     &:hover {
-
       span {
-        color:#fff;
+        color: #fff;
       }
 
       &::before {
-        transform-origin:left top;
-        transform:scale(1, 1);
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
     }
-  }
 
-  span {
-    display: block;
-    position: relative;
-    text-align: center;
+    span {
+      display: block;
+      position: relative;
+      text-align: center;
+    }
   }
 `
