@@ -66,7 +66,7 @@ const StyledBg = styled.div`
 `
 
 const StyledContents2 = styled(Contents)`
-  padding-bottom: 32px;
+  padding-bottom: 80px;
 `
 
 const StyledButton1 = styled(Button1)`

@@ -9,7 +9,7 @@ const Vision = ({ ...props }) => {
   return (
     <StyledVision {...props}>
       <StyledParticles options={visionParticlesOption} />
-      <Contents>
+      <StyledContents>
         <StyledHeading2>VISION</StyledHeading2>
         <TextArea
           text2={{
@@ -22,7 +22,7 @@ const Vision = ({ ...props }) => {
               あなたも、私たちのサービスをご利用いただければ、未来のモビリティに対応した住まいを手に入れ、新しいライフスタイルを手軽に始めることができます。`
           }}
         />
-      </Contents>
+      </StyledContents>
     </StyledVision>
   )
 }
@@ -46,6 +46,12 @@ const StyledParticles = styled(Particles)`
   overflow: hidden;
 `
 
+const StyledContents = styled(Contents)`
+  position: relative;
+`
+
 const StyledHeading2 = styled(Heading2)`
   position: absolute;
+  right: 0;
+  top: 0;
 `

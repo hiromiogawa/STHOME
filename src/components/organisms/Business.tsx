@@ -69,34 +69,35 @@ const Business = ({ ...props }) => {
   ]
   return (
     <StyledBusiness ref={elementsRef} {...props}>
-      <FadeInAnimation trigger={inView}>
-        <StyledContents>
-          <StyledHeading2>Business</StyledHeading2>
-
-          {col2Data.map((data, index) => {
-            if (index === 0) {
-              return (
-                <Col2TextImg
-                  key={data.textButtonArea.heading.children}
-                  maskColor="#f4f3f1"
-                  rowReverse={isEven(index) ? true : false}
-                  {...data}
-                />
-              )
-            } else {
-              return (
-                <StyledCol2TextImg
-                  key={data.textButtonArea.heading.children}
-                  maskColor="#f4f3f1"
-                  rowReverse={isEven(index) ? true : false}
-                  {...data}
-                />
-              )
-            }
-          })}
-          <StyledBg />
-        </StyledContents>
-      </FadeInAnimation>
+      <StyledContents>
+        <StyledHeading2>Business</StyledHeading2>
+        <FadeInAnimation trigger={inView}>
+          <StyledInner>
+            {col2Data.map((data, index) => {
+              if (index === 0) {
+                return (
+                  <Col2TextImg
+                    key={data.textButtonArea.heading.children}
+                    maskColor="#f4f3f1"
+                    rowReverse={isEven(index) ? true : false}
+                    {...data}
+                  />
+                )
+              } else {
+                return (
+                  <StyledCol2TextImg
+                    key={data.textButtonArea.heading.children}
+                    maskColor="#f4f3f1"
+                    rowReverse={isEven(index) ? true : false}
+                    {...data}
+                  />
+                )
+              }
+            })}
+            <StyledBg />
+          </StyledInner>
+        </FadeInAnimation>
+      </StyledContents>
     </StyledBusiness>
   )
 }
@@ -112,10 +113,14 @@ const StyledContents = styled(Contents)`
   position: relative;
 `
 
+const StyledInner = styled.div`
+  padding-bottom: 80px;
+`
+
 const StyledBg = styled.div`
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: -40px;
   background-color: #f4f3f1;
   width: 5000px;
   height: calc(100% - 160px);

@@ -15,6 +15,13 @@ import Record from '@/components/organisms/Record'
 // タイプ
 import type { Records } from '@/types/data'
 
+import { useRef, useState } from 'react'
+import useScrollTrigger from '@/hooks/useScrollTrigger'
+import img1 from '@/images/index/Business_ph01.png'
+import Heading2 from '@/components/atoms/heading/Heading2'
+import FadeInAnimation from '@/components/animation/FadeInAnimation'
+import Col2TextImg from '@/components/molecules/Col2TextImg'
+
 type PropTypes = {
   records: Records
 }
@@ -29,6 +36,9 @@ const Home = ({ records }: PropTypes) => {
     width: record.eyecatch.width,
     height: record.eyecatch.height
   }))
+
+  const elementsRef = useRef(null)
+  const inView = useScrollTrigger(elementsRef)
   return (
     <Layout>
       <PageHead />
@@ -36,6 +46,33 @@ const Home = ({ records }: PropTypes) => {
       <Vision />
       <Business />
       <StyledRecord slideCards={slideCards} />
+      <StyledCompany ref={elementsRef}>
+        <Contents>
+          <Heading2>Company</Heading2>
+          <FadeInAnimation trigger={inView}>
+            <Col2TextImg
+              textButtonArea={{
+                heading: {
+                  children: 'Profile'
+                },
+                text: {
+                  children: 'ダミーテキストダミーテキストダミーテキスト'
+                },
+                button: {
+                  href: '',
+                  children: 'View More'
+                }
+              }}
+              image={{
+                src: img1,
+                alt: 'text'
+              }}
+              maskColor="#FFF"
+              rowReverse
+            />
+          </FadeInAnimation>
+        </Contents>
+      </StyledCompany>
     </Layout>
   )
 }
@@ -45,6 +82,8 @@ export default Home
 const StyledRecord = styled(Record)`
   margin-top: 148px;
 `
+
+const StyledCompany = styled.section``
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
