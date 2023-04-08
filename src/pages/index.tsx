@@ -16,20 +16,11 @@ import Company from '@/components/organisms/Company'
 // タイプ
 import type { Records } from '@/types/data'
 
-import { useRef, useState } from 'react'
-import useScrollTrigger from '@/hooks/useScrollTrigger'
-import img1 from '@/images/index/Business_ph01.png'
-import Heading2 from '@/components/atoms/heading/Heading2'
-import FadeInAnimation from '@/components/animation/FadeInAnimation'
-import Col2TextImg from '@/components/molecules/Col2TextImg'
-
 type PropTypes = {
   records: Records
 }
 
 const Home = ({ records }: PropTypes) => {
-  console.log(records)
-
   const slideCards = records.map((record) => ({
     href: `/record/detail/${record.id}`,
     src: record.eyecatch.url,
@@ -38,8 +29,6 @@ const Home = ({ records }: PropTypes) => {
     height: record.eyecatch.height
   }))
 
-  const elementsRef = useRef(null)
-  const inView = useScrollTrigger(elementsRef)
   return (
     <Layout>
       <PageHead />
