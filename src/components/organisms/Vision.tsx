@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import { visionParticlesOption } from '@/data/top/visionParticlesOption'
-import Particles, {
-  PropTypes as PariclesType
-} from '@/components/animation/Paricles'
-import Head from 'next/head'
+import Particles from '@/components/animation/Paricles'
 import Contents from '@/components/common/Contents'
 import Heading2 from '../atoms/heading/Heading2'
 import TextArea from '@/components/molecules/TextArea'
@@ -11,12 +8,6 @@ import TextArea from '@/components/molecules/TextArea'
 const Vision = () => {
   return (
     <StyledVision>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <StyledParticles options={visionParticlesOption} />
       <Contents>
         <StyledHeading2>VISION</StyledHeading2>

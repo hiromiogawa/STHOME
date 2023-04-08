@@ -39,10 +39,6 @@ const PageHead = ({
       <meta property="og:url" content={ogUrl || path} />
       <meta property="og:image" content={`${path}images/OG.jpg`} />
       <meta property="mixi:image" content={`${path}images/OG.jpg`} />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Raleway:wght@500;700&display=swap"
-        rel="stylesheet"
-      />
     </Head>
   )
 }
