@@ -1,22 +1,14 @@
 import styled from 'styled-components'
-import { useCallback, useEffect, useState } from 'react'
-import options from '@/data/particles.json'
-import { loadFull } from 'tsparticles'
-import Particles from 'react-tsparticles'
-import type { ISourceOptions, Container, Main } from 'tsparticles-engine/types/'
+import { visionParticlesOption } from '@/data/top/visionParticlesOption'
+import Particles, {
+  PropTypes as PariclesType
+} from '@/components/animation/Paricles'
 import Head from 'next/head'
 import Contents from '@/components/common/Contents'
 import Heading2 from '../atoms/heading/Heading2'
 import TextArea from '@/components/molecules/TextArea'
 
 const Vision = () => {
-  const particlesInit = useCallback(async (engine: Main) => {
-    await loadFull(engine)
-  }, [])
-
-  // const particlesLoaded = useCallback(async (container?: Container) => {
-  //   await console.log(container)
-  // }, [])
   return (
     <StyledVision>
       <Head>
@@ -25,12 +17,7 @@ const Vision = () => {
           rel="stylesheet"
         />
       </Head>
-      <StyledParticles
-        id="tsparticles"
-        init={particlesInit}
-        //loaded={particlesLoaded}
-        options={options as ISourceOptions}
-      />
+      <StyledParticles options={visionParticlesOption} />
       <Contents>
         <StyledHeading2>VISION</StyledHeading2>
         <TextArea

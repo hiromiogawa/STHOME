@@ -14,7 +14,6 @@ const Home = () => {
   return (
     <Layout>
       <PageHead />
-
       <FirstView />
       <Vision />
       <Business />
