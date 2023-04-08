@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import PageHead from '@/components/common/PageHead'
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
@@ -17,12 +18,16 @@ const Home = () => {
       <FirstView />
       <Vision />
       <Business />
-      <Record />
+      <StyledRecord />
     </Layout>
   )
 }
 
 export default Home
+
+const StyledRecord = styled(Record)`
+  margin-top: 148px;
+`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 // export const getStaticProps = async () => {

@@ -8,7 +8,7 @@ import Col2TextImg from '@/components/molecules/Col2TextImg'
 import isEven from '@/functions/isEven'
 import FadeInAnimation from '@/components/animation/FadeInAnimation'
 
-const Business = () => {
+const Business = ({ ...props }) => {
   const elementsRef = useRef(null)
   const inView = useScrollTrigger(elementsRef)
   const col2Data = [
@@ -22,7 +22,7 @@ const Business = () => {
         },
         button: {
           href: '',
-          children: 'ボタン'
+          children: 'View More'
         }
       },
       image: {
@@ -40,7 +40,7 @@ const Business = () => {
         },
         button: {
           href: '',
-          children: 'ボタン'
+          children: 'View More'
         }
       },
       image: {
@@ -58,7 +58,7 @@ const Business = () => {
         },
         button: {
           href: '',
-          children: 'ボタン'
+          children: 'View More'
         }
       },
       image: {
@@ -68,7 +68,7 @@ const Business = () => {
     }
   ]
   return (
-    <StyledBusiness ref={elementsRef}>
+    <StyledBusiness ref={elementsRef} {...props}>
       <FadeInAnimation trigger={inView}>
         <StyledContents>
           <StyledHeading2>Business</StyledHeading2>

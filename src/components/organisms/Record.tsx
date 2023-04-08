@@ -6,8 +6,9 @@ import dammyImg from '@/images/index/dammy.png'
 import useScrollTrigger from '@/hooks/useScrollTrigger'
 import FadeInAnimation from '@/components/animation/FadeInAnimation'
 import ContinuousSlider from '@/components/animation/ContinuousSlider'
+import Button1 from '@/components/atoms/button/Button1'
 
-const Record = () => {
+const Record = ({ ...props }) => {
   const elementsRef = useRef(null)
   const inView = useScrollTrigger(elementsRef)
 
@@ -75,12 +76,15 @@ const Record = () => {
   ]
 
   return (
-    <StyledRecord ref={elementsRef}>
-      <StyledContents>
+    <StyledRecord ref={elementsRef} {...props}>
+      <StyledContents1>
         <StyledHeading2>Record</StyledHeading2>
-      </StyledContents>
+      </StyledContents1>
       <FadeInAnimation trigger={inView}>
         <ContinuousSlider items={slideItems} trigger={inView} />
+        <StyledContents2>
+          <StyledButton1>View More</StyledButton1>
+        </StyledContents2>
         <StyledBg />
       </FadeInAnimation>
     </StyledRecord>
@@ -90,12 +94,11 @@ const Record = () => {
 export default Record
 
 const StyledRecord = styled.section`
-  margin-top: 148px;
   position: relative;
   padding-bottom: 48px;
 `
 
-const StyledContents = styled(Contents)`
+const StyledContents1 = styled(Contents)`
   padding-top: 50px;
   position: relative;
 `
@@ -114,4 +117,12 @@ const StyledBg = styled.div`
   width: 100%;
   height: 75%;
   z-index: -1;
+`
+
+const StyledContents2 = styled(Contents)`
+  padding-bottom: 32px;
+`
+
+const StyledButton1 = styled(Button1)`
+  margin-top: 40px;
 `

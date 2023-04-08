@@ -5,9 +5,9 @@ import Contents from '@/components/common/Contents'
 import Heading2 from '../atoms/heading/Heading2'
 import TextArea from '@/components/molecules/TextArea'
 
-const Vision = () => {
+const Vision = ({ ...props }) => {
   return (
-    <StyledVision>
+    <StyledVision {...props}>
       <StyledParticles options={visionParticlesOption} />
       <Contents>
         <StyledHeading2>VISION</StyledHeading2>
