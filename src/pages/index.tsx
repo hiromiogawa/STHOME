@@ -1,24 +1,41 @@
 import styled from 'styled-components'
+import { getRecords } from '@/functions/fetch'
+
+// コンポーネント
 import PageHead from '@/components/common/PageHead'
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
-
+import Contents from '@/components/common/Contents'
 import Layout from '@/components/common/Layout'
 import FirstView from '@/components/molecules/FirstView'
 import Vision from '@/components/organisms/Vision'
 import Business from '@/components/organisms/Business'
 import Record from '@/components/organisms/Record'
 
-import Contents from '@/components/common/Contents'
+// タイプ
+import type { Records } from '@/types/data'
 
-const Home = () => {
+type PropTypes = {
+  records: Records
+}
+
+const Home = ({ records }: PropTypes) => {
+  console.log(records)
+
+  const slideCards = records.map((record) => ({
+    href: `/record/detail/${record.id}`,
+    src: record.eyecatch.url,
+    alt: record.title,
+    width: record.eyecatch.width,
+    height: record.eyecatch.height
+  }))
   return (
     <Layout>
       <PageHead />
       <FirstView />
       <Vision />
       <Business />
-      <StyledRecord />
+      <StyledRecord slideCards={slideCards} />
     </Layout>
   )
 }
@@ -30,12 +47,12 @@ const StyledRecord = styled(Record)`
 `
 
 // データをテンプレートに受け渡す部分の処理を記述します
-// export const getStaticProps = async () => {
-//   const navigationData = await getNavigation()
+export const getStaticProps = async () => {
+  const recordData = await getRecords()
 
-//   return {
-//     props: {
-//       navigation: navigationData.contents
-//     }
-//   }
-// }
+  return {
+    props: {
+      records: recordData.contents
+    }
+  }
+}

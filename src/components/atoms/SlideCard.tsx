@@ -6,7 +6,7 @@ import { SplideSlide } from '@splidejs/react-splide'
 
 export type PropTypes = ImageProps & LinkProps
 
-const SlideCard = ({ src, alt, href }: PropTypes) => {
+const SlideCard = ({ src, alt, href, width, height }: PropTypes) => {
   const [marginTop, setMarginTop] = useState(0)
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const SlideCard = ({ src, alt, href }: PropTypes) => {
   return (
     <StyledSplideSlide key={alt} style={{ marginTop: `${marginTop}px` }}>
       <StyledLink href={href}>
-        <StyledImage src={src} alt={alt} />
+        <StyledImage src={src} alt={alt} width={width} height={height} />
       </StyledLink>
     </StyledSplideSlide>
   )
@@ -30,9 +30,14 @@ const StyledSplideSlide = styled(SplideSlide)`
 `
 const StyledLink = styled(Link)`
   display: block;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `
 
 const StyledImage = styled(Image)`
   width: 100%;
   height: auto;
+  max-width: 480px;
 `

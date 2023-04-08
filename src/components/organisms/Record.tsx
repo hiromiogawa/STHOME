@@ -2,78 +2,24 @@ import { useRef } from 'react'
 import styled from 'styled-components'
 import Heading2 from '@/components/atoms/heading/Heading2'
 import Contents from '@/components/common/Contents'
-import dammyImg from '@/images/index/dammy.png'
 import useScrollTrigger from '@/hooks/useScrollTrigger'
 import FadeInAnimation from '@/components/animation/FadeInAnimation'
 import ContinuousSlider from '@/components/animation/ContinuousSlider'
 import Button1 from '@/components/atoms/button/Button1'
 
-const Record = ({ ...props }) => {
+export type PropTypes = {
+  slideCards: {
+    src: string
+    alt: string
+    href: string
+    width?: number
+    height?: number
+  }[]
+}
+
+const Record = ({ slideCards, ...props }: PropTypes) => {
   const elementsRef = useRef(null)
   const inView = useScrollTrigger(elementsRef)
-
-  const slideItems = [
-    {
-      src: dammyImg,
-      alt: 'ダミー0',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー1',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー2',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー3',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー4',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー5',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー6',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー7',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー8',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー9',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー10',
-      href: '/'
-    },
-    {
-      src: dammyImg,
-      alt: 'ダミー11',
-      href: '/'
-    }
-  ]
 
   return (
     <StyledRecord ref={elementsRef} {...props}>
@@ -81,7 +27,7 @@ const Record = ({ ...props }) => {
         <StyledHeading2>Record</StyledHeading2>
       </StyledContents1>
       <FadeInAnimation trigger={inView}>
-        <ContinuousSlider items={slideItems} trigger={inView} />
+        <ContinuousSlider items={slideCards} trigger={inView} />
         <StyledContents2>
           <StyledButton1>View More</StyledButton1>
         </StyledContents2>
