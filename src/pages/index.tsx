@@ -12,6 +12,7 @@ import Vision from '@/components/organisms/Vision'
 import Business from '@/components/organisms/Business'
 import Record from '@/components/organisms/Record'
 import Company from '@/components/organisms/Company'
+import Footer from '@/components/organisms/Footer'
 
 // タイプ
 import type { Records } from '@/types/data'
@@ -37,6 +38,7 @@ const Home = ({ records }: PropTypes) => {
       <Business />
       <StyledRecord slideCards={slideCards} />
       <StyledCompany />
+      <Footer />
     </Layout>
   )
 }

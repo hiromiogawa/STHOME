@@ -17,18 +17,16 @@ const MaskAnimation = ({
   ...props
 }: PropTypes) => {
   return (
-    <div {...props}>
-      <StyledMaskOuter>
-        {children}
-        <StyledMask
-          trigger={trigger}
-          delay={delay}
-          duration={duration}
-          fillMode={fillMode}
-          backgroundColor={backgroundColor}
-        />
-      </StyledMaskOuter>
-    </div>
+    <StyledMaskOuter {...props}>
+      {children}
+      <StyledMask
+        trigger={trigger}
+        delay={delay}
+        duration={duration}
+        fillMode={fillMode}
+        backgroundColor={backgroundColor}
+      />
+    </StyledMaskOuter>
   )
 }
 
@@ -37,7 +35,6 @@ export default MaskAnimation
 const StyledMaskOuter = styled.div`
   position: relative;
   overflow: hidden;
-  display: inline-block;
 `
 
 const StyledMask = styled.div<
@@ -56,6 +53,7 @@ const StyledMask = styled.div<
       animation: ${mask} ${duration ? duration : 0.6}s
         ${fillMode ? fillMode : 'forwards'} ${delay ? delay : 0}s;
     `}
+  z-index: 999;
 `
 
 const mask = keyframes`

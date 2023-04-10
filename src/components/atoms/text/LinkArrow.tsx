@@ -6,10 +6,12 @@ export type PropTypes = {
   children: string
 }
 
-const LinkArrow = ({ href, children }: PropTypes) => {
+const LinkArrow = ({ href, children, ...props }: PropTypes) => {
   return (
-    <StyledLinkArrow>
-      <StyledLink href={href}>{children}</StyledLink>
+    <StyledLinkArrow {...props}>
+      <StyledLink href={href}>
+        <span>{children}</span>
+      </StyledLink>
     </StyledLinkArrow>
   )
 }
@@ -25,5 +27,6 @@ const StyledLinkArrow = styled.p`
 `
 
 const StyledLink = styled(Link)`
+  display: block;
   color: #025f80;
 `
