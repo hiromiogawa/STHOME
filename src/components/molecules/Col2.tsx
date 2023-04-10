@@ -12,8 +12,8 @@ const Col2 = ({
 }: PropTypes) => {
   return (
     <StyledCol2Wrap rowReverse={rowReverse} {...props}>
-      <div>{children[0]}</div>
-      <div>{children[1]}</div>
+      {children[0]}
+      {children[1]}
     </StyledCol2Wrap>
   )
 }

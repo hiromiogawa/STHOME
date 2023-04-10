@@ -44,13 +44,11 @@ const Col2TextImg = ({
             }}
             trigger={inView}
           />,
-          <StyledMaskAnimation
-            key="col1"
-            trigger={inView}
-            backgroundColor={maskColor}
-          >
-            <Image src={image.src} alt={image.alt} />
-          </StyledMaskAnimation>
+          <StyledDiv key="col1">
+            <MaskAnimation trigger={inView} backgroundColor={maskColor}>
+              <Image src={image.src} alt={image.alt} />
+            </MaskAnimation>
+          </StyledDiv>
         ]}
       </Col2>
     </div>
@@ -63,6 +61,6 @@ const StyledTextButtonArea = styled(TextButtonArea)`
   width: 560px;
 `
 
-const StyledMaskAnimation = styled(MaskAnimation)`
+const StyledDiv = styled.div`
   width: calc(100% - (560px + 48px));
 `
