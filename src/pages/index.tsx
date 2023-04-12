@@ -15,10 +15,10 @@ import Company from '@/components/organisms/Company'
 import Footer from '@/components/organisms/Footer'
 
 // タイプ
-import type { Records } from '@/types/data'
+import type { RecordsType } from '@/types/data'
 
 type PropTypes = {
-  records: Records
+  records: RecordsType
 }
 
 const Home = ({ records }: PropTypes) => {
@@ -55,11 +55,11 @@ const StyledCompany = styled(Company)`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const recordData = await getRecords()
+  const recordsData = await getRecords()
 
   return {
     props: {
-      records: recordData.contents
+      recordsData.contents
     }
   }
 }

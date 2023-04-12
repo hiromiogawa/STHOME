@@ -14,3 +14,8 @@ export const getRecords = async (
     contents: data.contents
   }
 }
+
+export const getRecord = async (id: string) => {
+  const data = await client.get({ endpoint: 'record', contentId: id })
+  return data
+}

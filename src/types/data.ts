@@ -5,7 +5,7 @@ export type NavigationType = {
   showInFooter: boolean
 }[]
 
-export type Category = {
+export type CategoryType = {
   id: string
   createdAt: string
   updatedAt: string
@@ -13,7 +13,7 @@ export type Category = {
   name: string
 }
 
-export type Record = {
+export type RecordType = {
   id: string
   createdAt: string
   updatedAt: string
@@ -26,7 +26,7 @@ export type Record = {
     height: number
     width: number
   }
-  category: Category[]
+  category: CategoryType[]
 }
 
-export type Records = Record[]
+export type RecordsType = RecordType[]

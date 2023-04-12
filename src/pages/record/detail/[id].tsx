@@ -1,75 +1,48 @@
-import { client } from '../../../../libs/client'
-import { range } from '../../../../modules/utils'
-import type { GetStaticProps, GetStaticPaths } from 'next'
-import { blogsTypes, categoryType, categoriesType, pagenationTypes } from '../../../../types/types'
-import { SITE_TITLE, PER_PAGE } from '../../../../vars/site'
-import Head from 'next/head'
-import Layout from '../../../../components/Layout'
-import Categories from '../../../../components/Categories'
-import PageList from '../../../../components/templates/List'
+import { getRecord, getRecords } from '@/functions/fetch'
+import Html from '@/components/elements/Html'
 
-type props = blogsTypes & categoriesType & pagenationTypes & {
-    currentCategory: string
+import type { GetStaticProps } from 'next'
+import type { RecordType, RecordsType } from '@/types/data'
+import type { ParsedUrlQuery } from 'node:querystring'
+
+type PropTypes = RecordType
+
+export default function BlogId({
+  id,
+  title,
+  publishedAt,
+  content,
+  category
+}: PropTypes) {
+  return (
+    <main>
+      <h1>{title}</h1>
+      <p>{publishedAt}</p>
+      <Html>{content}</Html>
+    </main>
+  )
 }
 
-export default function BlogCategoryPageList({ contents, totalCount, currentPage, currentCategory, categories }: props) {
-    return (
-    <Layout>
-        <Head>
-            <title>{currentCategory} | 記事一覧 | {SITE_TITLE}</title>
-        </Head>
-        <Categories categories={categories} />
-        <PageList contents={contents} totalCount={totalCount} currentPage={currentPage} currentCategory={currentCategory} />
-    </Layout>
-    );
+type ParamsTypes = ParsedUrlQuery & {
+  id: string
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {    
-    const resCategory = await client.get({endpoint: 'categories'})
-
-    const resPaths = await Promise.all(
-        resCategory.contents.map((category: categoryType) => {
-            const result = client
-            .get({
-                endpoint: 'blogs',
-                queries: {
-                    filters: `category[equals]${category.id}`
-                }
-            })
-            .then(({ totalCount }) => {
-                return range(1, Math.ceil(totalCount / PER_PAGE)).map((repo) => `/blog/${category.id}/page/${repo}`)
-            })
-            return result
-        })
-    )
-    const paths = resPaths.flat()
-    return { paths, fallback: false }
+// 静的生成のためのパスを指定します
+export const getStaticPaths = async () => {
+  const recordsData: { contents: RecordsType } = await getRecords()
+  const paths = recordsData.contents.map(
+    (content) => `/record/detail/${content.id}`
+  )
+  return { paths, fallback: false }
 }
 
+// データをテンプレートに受け渡す部分の処理を記述します
+export const getStaticProps: GetStaticProps<RecordType, ParamsTypes> = async (
+  context
+) => {
+  const recordData: RecordType = await getRecord(context.params!.id)
 
-// データを取得
-export const getStaticProps: GetStaticProps = async (context) => {
-    const { params } = context
-
-    const id = params!.id
-
-    const data = await client.get({
-        endpoint: 'blogs',
-        queries: { 
-            limit: PER_PAGE, 
-            offset: (Number(id) - 1) * PER_PAGE,
-            filters: `category[equals]${params!.category}`
-        }
-    })
-    const categories = await client.get({endpoint: 'categories'})
-
-    return {
-        props: {
-            contents: data.contents,
-            totalCount: data.totalCount,
-            currentPage: id,
-            currentCategory: params!.category,
-            categories: categories.contents
-        }
-    }
+  return {
+    props: recordData
+  }
 }
