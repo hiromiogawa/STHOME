@@ -55,11 +55,11 @@ const StyledCompany = styled(Company)`
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const recordsData = await getRecords()
+  const recordsData = await getRecords(10)
 
   return {
     props: {
-      recordsData.contents
+      records: recordsData.contents
     }
   }
 }

@@ -1,7 +1,7 @@
 import client from '@/libs/client'
 
 export const getRecords = async (
-  limit = 10,
+  limit = 20,
   offset = 0,
   orders = '-createdAt'
 ) => {
