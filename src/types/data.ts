@@ -13,6 +13,8 @@ export type CategoryType = {
   name: string
 }
 
+export type CategoriesType = CategoryType[]
+
 export type RecordType = {
   id: string
   createdAt: string
@@ -30,3 +32,9 @@ export type RecordType = {
 }
 
 export type RecordsType = RecordType[]
+
+export type RecordResData = {
+  totalCount: number
+  offset: number
+  limit: number
+}
