@@ -7,8 +7,6 @@ import getRange from '@/functions/getRange'
 import { PER_PAGE, MAX_LIMIT } from '@/config'
 import ReactPaginate from 'react-paginate'
 
-import Link from 'next/link'
-
 type PropTypes = {
   records: RecordsType
   totalCount: number
@@ -26,9 +24,11 @@ const RecordPages = ({ records, totalCount, currentPage }: PropTypes) => {
       })}
       <ReactPaginate
         pageCount={Math.ceil(totalCount / PER_PAGE)}
-        marginPagesDisplayed={currentPage}
+        marginPagesDisplayed={1}
         pageRangeDisplayed={3}
         onPageChange={handlePaginate}
+        previousLabel="<"
+        nextLabel=">"
       />
     </>
   )
