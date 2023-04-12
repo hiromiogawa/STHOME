@@ -13,7 +13,7 @@ type PropTypes = {
   currentPage: number
 }
 
-const RecordPages = ({ records, totalCount, currentPage }: PropTypes) => {
+const RecordPages = ({ records, totalCount }: PropTypes) => {
   const handlePaginate = (selectedItem: { selected: number }) => {
     Router.push(`/record/${selectedItem.selected + 1}`)
   }
@@ -68,8 +68,7 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       records: recordsData.contents,
-      totalCount: recordsData.totalCount,
-      currentPage: context.params!.id
+      totalCount: recordsData.totalCount
     }
   }
 }
